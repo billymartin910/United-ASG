@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-west-2"
-}
-
 data "aws_ami" "ubuntu" {
   most_recent = true
 
@@ -16,4 +12,8 @@ data "aws_ami" "ubuntu" {
   }
 
   owners = ["099720109477"] # Canonical
+}
+
+output "UBUNTU_AMI" {
+  value = "${data.aws_ami.ubuntu.id}"
 }
